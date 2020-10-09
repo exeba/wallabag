@@ -34,9 +34,10 @@ class FOSUserManagerBridge implements UserManagerInterface
         $user->setEnabled(true);
         $user->setUsername($credentials['username']);
         $user->setEmail($credentials['username']);
-        // Password cannot be null, any value is
+        // Password & salt cannot be null, any value is
         // ok as long as its not a real password hash
         $user->setPassword('IMAP_AUTH');
+        $user->setSalt('IMAP_SALT');
 
         return $user;
     }
